@@ -189,7 +189,7 @@ public class BasicThreadPool extends Thread implements ThreadPool {
 
         @Override
         public Thread createThread(Runnable runnable) {
-            return new Thread(group, runnable, "thread-pool-" + COUNTER.getAcquire());
+            return new Thread(group, runnable, "thread-pool-" + COUNTER.getAndIncrement());
         }
     }
 }
